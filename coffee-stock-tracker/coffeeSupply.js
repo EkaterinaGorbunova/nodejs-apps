@@ -47,8 +47,7 @@ function deleteSupply(coffeeType, quantity) {
       }
     }
 
-    const deletionIndexes =
-      quantity === '*' ? indexes : indexes.slice(0, quantity);
+    const deletionIndexes = quantity === '*' ? indexes : indexes.slice(0, quantity);
     // Sort indexes in descending order to avoid index shifting
     deletionIndexes.sort((a, b) => b - a);
 
