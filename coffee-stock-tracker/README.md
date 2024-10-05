@@ -28,8 +28,6 @@ The app helps manage a cafe's coffee supply using a text file, `supply.txt`, to 
 - **Efficient Stock Control:** Simplifies the process of adding and removing inventory, ensuring that cafe owners can easily maintain their stock levels.
 - **Real-Time Updates:** Provides instant feedback on inventory status, helping owners make informed decisions.
 
-Cafes and Coffee Shops: Helps cafe owners manage their coffee inventory efficiently, ensuring they have the right stock levels for daily operations.
-
 # How it Can Be Used
 
 - **Restaurants and Coffee Shops:** Helps cafe owners manage their coffee inventory efficiently, ensuring they have the right stock levels for daily operations.
