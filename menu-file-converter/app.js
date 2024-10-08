@@ -1,22 +1,23 @@
-const fs = require('node:fs/promises');
+const fsPromises = require('node:fs/promises');
+const fs = require('node:fs');
 const os = require('os');
 
 const initialFileName = 'menu.csv';
 const newFileName = 'menu.txt';
 
 function readInitialFile() {
-  return fs.readFile(initialFileName, 'utf8');
+  return fsPromises.readFile(initialFileName, 'utf8');
 }
 
 function writeNewFile(data) {
-  return fs.writeFile(newFileName, data);
+  return fsPromises.writeFile(newFileName, data);
 }
 
-function formatData(data) {
+async function formatData(data) {
   const splitedDataByLine = data.split(os.EOL);
   const menuItems = {};
 
-  // Process data
+  // process data
   for (const line of splitedDataByLine) {
     const [category, mealName, mealQuantity, price] = line.split(',');
     const newPrice = Number(price.replace('$', ''));
@@ -28,7 +29,7 @@ function formatData(data) {
     menuItems[category].push({ mealName, mealQuantity, price: newPrice });
   }
 
-  // Sort data
+  // sort data
   let finalData = '';
   const categoryName = (category) => `* ${category.charAt(0).toUpperCase() + category.slice(1)} Items *${os.EOL}`;
 
@@ -46,13 +47,17 @@ function formatData(data) {
 
 async function main() {
   try {
+    if (!fs.existsSync(initialFileName)) {
+      throw new Error(`Initial ${initialFileName} file doesn't exist.`);
+    }
+
     const initialData = await readInitialFile();
     const formatedData = await formatData(initialData)
     await writeNewFile(formatedData);
 
     console.log('Menu data is formatted and written to the file.');
-  } catch (error) {
-    console.error('Error:', error);
+  } catch (err) {
+    console.log(err);
   }
 }
 
