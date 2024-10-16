@@ -2,7 +2,7 @@
 
 This app simplifies menu management by automating the conversion of CSV data into a well-formatted TXT file, saving time and reducing errors when organizing menu items.
 
-![Menu data befor after](./menu-data-befor-after.png)
+![Menu data befor after](./menu-data-before-after.png)
 
 # Description
 
